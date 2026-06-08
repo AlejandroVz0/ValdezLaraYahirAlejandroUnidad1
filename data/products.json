@@ -1,0 +1,171 @@
+[
+  {
+    "id": "prod-01",
+    "name": "Taladro Percutor Inalámbrico 20V Max",
+    "brand": "DeWalt",
+    "description": "Incluye 2 baterías de litio y cargador rápido. Ideal para concreto y mampostería profesional.",
+    "price": 3450,
+    "originalPrice": 4100,
+    "category": "Herramientas Eléctricas",
+    "image": "/assets/products/prod-01.png",
+    "stock": 15,
+    "isOffer": true
+  },
+  {
+    "id": "prod-02",
+    "name": "Esmeriladora Angular 4-1/2\" 840W",
+    "brand": "Makita",
+    "description": "Motor de alta resistencia al calor. Diseño compacto y ligero para trabajo continuo industrial.",
+    "price": 1299,
+    "originalPrice": 1550,
+    "category": "Herramientas Eléctricas",
+    "image": "/assets/products/prod-02.png",
+    "stock": 8
+  },
+  {
+    "id": "prod-03",
+    "name": "Sierra Circular 7-1/4\" 1500W",
+    "brand": "Bosch",
+    "description": "Corte preciso y potente. Base de aluminio resistente. Incluye disco de carburo de 24 dientes.",
+    "price": 2850,
+    "category": "Herramientas Eléctricas",
+    "image": "/assets/products/prod-03.png",
+    "stock": 0
+  },
+  {
+    "id": "prod-04",
+    "name": "Juego de Brocas y Puntas 100 Piezas",
+    "brand": "Truper",
+    "description": "Estuche de uso rudo con brocas para metal (HSS), madera, mampostería y un set de puntas magnéticas para destornillador.",
+    "price": 545,
+    "category": "Herramientas Manuales",
+    "image": "/assets/products/prod-04.png",
+    "stock": 42
+  },
+  {
+    "id": "prod-05",
+    "name": "Lijadora Roto-Orbital 5\" 3A",
+    "brand": "Milwaukee",
+    "description": "Extracción eficiente de polvo. Control electrónico de velocidad variable para acabados ultra suaves en cualquier madera.",
+    "price": 1890,
+    "category": "Herramientas Eléctricas",
+    "image": "/assets/products/prod-05.png",
+    "stock": 10
+  },
+  {
+    "id": "prod-06",
+    "name": "Soldadora Inversora 130A 110V/220V",
+    "brand": "Lincoln Electric",
+    "description": "Bi-voltaje automático, súper portátil y ligera. Diseñada para electrodos revestidos de herrería ligera y reparaciones rápidas.",
+    "price": 4200,
+    "category": "Herramientas Eléctricas",
+    "image": "/assets/products/prod-06.png",
+    "stock": 4
+  },
+  {
+    "id": "prod-07",
+    "name": "Nivel Láser de Líneas Cruzadas Verde",
+    "brand": "Stabila",
+    "description": "Diodo de alta visibilidad autonivelante de líneas verdes cruzadas. Incluye soporte multiusos y estuche de protección contra impactos.",
+    "price": 3150,
+    "category": "Electricidad",
+    "image": "/assets/products/prod-07.png",
+    "stock": 2
+  },
+  {
+    "id": "prod-08",
+    "name": "Pistola de Calor 1800W 2 Temperaturas",
+    "brand": "Stanley",
+    "description": "Soporte integrado para enfriamiento rápido. Ideal para remover pintura, aflojar tuercas apretadas o moldear plásticos.",
+    "price": 850,
+    "originalPrice": 990,
+    "category": "Herramientas Eléctricas",
+    "image": "/assets/products/prod-08.png",
+    "stock": 14,
+    "isOffer": true
+  },
+  {
+    "id": "prod-09",
+    "name": "Llave Stillson de 14\" Profesional",
+    "brand": "Truper",
+    "description": "Cuerpo de hierro fundido dúctil de alta resistencia con quijadas forjadas y endurecidas por inducción.",
+    "price": 380,
+    "category": "Plomería",
+    "image": "/assets/products/prod-09.png",
+    "stock": 18
+  },
+  {
+    "id": "prod-10",
+    "name": "Cople de Cobre 1/2\" (Paquete de 10)",
+    "brand": "Iusa",
+    "description": "Uniones soldables cobre a cobre de alta resistencia hidráulica para fluidos domésticos e industriales.",
+    "price": 95,
+    "category": "Plomería",
+    "image": "/assets/products/prod-10.png",
+    "stock": 50
+  },
+  {
+    "id": "prod-11",
+    "name": "Pinza Amperimétrica Digital Profesional",
+    "brand": "Fluke",
+    "description": "Medición precisa de corrientes de CA y CC, voltaje de seguridad para electricistas industriales.",
+    "price": 2450,
+    "originalPrice": 2800,
+    "category": "Electricidad",
+    "image": "/assets/products/prod-11.png",
+    "stock": 5,
+    "isOffer": true
+  },
+  {
+    "id": "prod-12",
+    "name": "Cinta Aislante Súper 33+ Profesional",
+    "brand": "3M",
+    "description": "Cinta de vinilo elástica de grado premium que ofrece excelente protección dieléctrica y resistencia climática.",
+    "price": 85,
+    "category": "Electricidad",
+    "image": "/assets/products/prod-12.png",
+    "stock": 120
+  },
+  {
+    "id": "prod-13",
+    "name": "Cubeta Pintura Vinílica Blanca 19L",
+    "brand": "Comex",
+    "description": "Pintura vinil-acrílica de gran cubrimiento, ideal para interiores y exteriores. Excelente resistencia al lavado.",
+    "price": 1850,
+    "category": "Pintura",
+    "image": "/assets/products/prod-13.png",
+    "stock": 12
+  },
+  {
+    "id": "prod-14",
+    "name": "Kit de Rodón y Rodillo de Microfibra",
+    "brand": "Comex",
+    "description": "Maneral ergonómico reforzado y repuesto de microfibra antiderrames para acabados lisos impecables.",
+    "price": 195,
+    "category": "Pintura",
+    "image": "/assets/products/prod-14.png",
+    "stock": 30
+  },
+  {
+    "id": "prod-15",
+    "name": "Carretilla de Escucha 5.5 ft³ de Chapa",
+    "brand": "Truper",
+    "description": "Llanta neumática premium de alta tracción y bastidor de tubo de acero reforzado con soportes frontales.",
+    "price": 1150,
+    "category": "Construcción",
+    "image": "/assets/products/prod-15.png",
+    "stock": 6
+  },
+  {
+    "id": "prod-16",
+    "name": "Arnés de Carga de 3 Argollas Cómodo",
+    "brand": "Urrea",
+    "description": "Arnés anticaídas con correas acolchadas en hombros y piernas. Certificación oficial contra accidentes de altura.",
+    "price": 980,
+    "originalPrice": 1100,
+    "category": "Construcción",
+    "image": "/assets/products/prod-16.png",
+    "stock": 12,
+    "isOffer": true
+  }
+]

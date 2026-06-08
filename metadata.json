@@ -1,0 +1,6 @@
+{
+  "name": "Ferretería Valdez",
+  "description": "Sitio web oficial y catálogo de Ferretería Valdez, ofreciendo herramientas de alta calidad para profesionales y entusiastas en Ramos Arizpe, Coahuila.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
