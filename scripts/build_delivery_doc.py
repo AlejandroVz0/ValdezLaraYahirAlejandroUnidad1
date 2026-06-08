@@ -153,11 +153,7 @@ def build_body(document: Document) -> None:
     add_heading(document, "Introduccion")
     add_paragraph(
         document,
-        "El presente documento describe el desarrollo del sitio web Ferreteria Valdez, una ferreteria ficticia inspirada en negocios reales de Ramos Arizpe, Coahuila. El sitio muestra catalogo de productos, permite cotizaciones y presenta formularios funcionales conectados a un backend basico.",
-    )
-    add_paragraph(
-        document,
-        "La interfaz visual toma como base el frontend generado en Stitch y se adapto para cumplir con los requisitos de la Unidad 1: ayuda, mapa del sitio, pagina 404, contacto, login, registro, recuperacion y almacenamiento JSON.",
+        "En este proyecto se desarrollo el sitio web de Ferreteria Valdez, que es una ferreteria ficticia inspirada en negocios reales de Ramos Arizpe, Coahuila. La idea principal fue crear una pagina que se viera moderna, ordenada y util para los clientes, pero que al mismo tiempo cumpliera con todos los requisitos que se pidieron en la materia de Desarrollo Web Profesional. Durante la realizacion del trabajo se fueron integrando varias secciones importantes como el inicio, el catalogo de productos, el area de ayuda, el contacto, el mapa del sitio y la pagina de error 404. Tambien se agregaron formularios de registro, inicio de sesion y recuperacion de contrasena para que el sitio se sintiera mas completo y funcional.\n\nAdemas de la parte visual, este proyecto tambien incluye un backend basico en Node.js para guardar informacion en archivos JSON, como usuarios, mensajes y productos. Eso hace que la pagina no sea solo de presentacion, sino que tambien tenga funciones reales para practicar mejor lo aprendido. En general, este trabajo me ayudo a entender mejor como se relacionan el frontend y el backend dentro de un mismo proyecto, y tambien me permitio reforzar temas como validaciones, rutas, estructura de carpetas, estilo responsivo y documentacion final para una entrega formal.",
     )
 
     add_heading(document, "Tecnologias utilizadas")
@@ -229,11 +225,7 @@ def build_body(document: Document) -> None:
     add_heading(document, "Conclusiones")
     add_paragraph(
         document,
-        "Ferreteria Valdez cumple con los requisitos solicitados para la Unidad 1. El proyecto integra una interfaz completa, catalogo funcional, formularios validados, captcha en registro y contacto, pagina 404, mapa del sitio y backend con almacenamiento en archivos JSON.",
-    )
-    add_paragraph(
-        document,
-        "El repositorio queda preparado para subirse a GitHub y el presente documento funciona como evidencia de la implementacion y verificacion general del sistema.",
+        "Como conclusion, considero que el proyecto de Ferreteria Valdez cumplio de buena manera con los objetivos planteados para esta unidad, ya que no solo se logro hacer una pagina con buena presentacion, sino tambien un sitio mas completo y funcional. A lo largo del desarrollo se integraron elementos importantes que ayudan a que la experiencia del usuario sea mejor, por ejemplo el catalogo con filtros, el formulario de contacto, la ayuda, el mapa del sitio y la pagina 404 personalizada. Tambien fue importante agregar validaciones en los formularios y una verificacion humana sencilla, porque eso hace que el sitio se vea mas serio y mejor pensado. Otra parte valiosa fue conectar el frontend con un backend basico, ya que asi se pudo guardar informacion de usuarios y mensajes en archivos JSON.\n\nEste trabajo tambien me dejo como aprendizaje que hacer una pagina web no solo es poner colores o texto en pantalla, sino organizar bien la informacion, pensar en lo que necesita el usuario y comprobar que todo funcione correctamente. Igualmente, me sirvio para practicar el uso de herramientas como GitHub, la estructura de un proyecto web y la importancia de documentar el proceso. En mi opinion, fue una actividad muy completa porque permitio aplicar conocimientos tecnicos y al mismo tiempo mejorar la manera de presentar un proyecto final.",
     )
 
     add_heading(document, "Repositorio")

@@ -68,6 +68,3 @@ npm run build
 npm run lint
 ```
 
-## Documentación
-
-El documento de entrega, capturas y evidencias se encuentran en la carpeta `docs`.
