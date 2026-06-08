@@ -1,47 +1,49 @@
-# Ferretería Valdez - Unidad 1
+# Ferreteria Valdez - Unidad 1
 
-Sitio web para una ferretería ficticia ubicada en Ramos Arizpe, Coahuila. El proyecto usa como base visual el frontend de Stitch y agrega backend en Node.js con almacenamiento en archivos JSON.
+Este proyecto es una pagina web de una ferreteria ficticia llamada Ferreteria Valdez. Fue hecha como trabajo de la materia de Desarrollo Web Profesional y su objetivo es mostrar productos, ayudar al cliente a encontrar informacion y permitir acciones como registrarse, iniciar sesion y enviar mensajes.
 
-## Funciones principales
+## Que incluye
 
-- Inicio con identidad de Ferretería Valdez y slogan.
-- Catálogo de productos con imágenes locales, precios, disponibilidad, filtros y búsqueda.
-- Categorías, ofertas, servicios, nosotros, ayuda y mapa del sitio.
+- Pagina de inicio con informacion principal del negocio.
+- Catalogo de productos con imagen, precio, descripcion y disponibilidad.
+- Filtros por categoria y busqueda de productos.
+- Paginas de ofertas, servicios, nosotros, ayuda y mapa del sitio.
+- Formulario de contacto con captcha matematico.
+- Registro de usuarios, inicio de sesion y recuperacion de contrasena.
+- Pagina 404 personalizada.
 - Carrito de compras simulado.
-- Cotización por WhatsApp.
-- Registro, inicio de sesión y recuperación de contraseña.
-- Formulario de contacto/buzón con CAPTCHA matemático.
-- Página 404 personalizada.
-- Backend con endpoints para productos, usuarios, mensajes y recuperación.
+- Boton de cotizacion por WhatsApp.
 
-## Tecnologías
+## Tecnologias usadas
 
 - React
 - Vite
 - Tailwind CSS
 - Node.js
-- JSON como almacenamiento simulado
+- JSON para guardar productos, usuarios y mensajes
 
-## Instalación
+## Como instalar
 
 ```bash
 npm install
 ```
 
-## Ejecutar en producción local
+## Como ejecutarlo
+
+Para iniciar el proyecto en modo normal:
 
 ```bash
 npm run build
 npm start
 ```
 
-Abrir:
+Despues abre esta direccion en tu navegador:
 
 ```text
 http://localhost:3000
 ```
 
-## Ejecutar en desarrollo
+## Modo desarrollo
 
 En una terminal:
 
@@ -55,16 +57,15 @@ En otra terminal:
 npm run dev
 ```
 
-Abrir:
-
-```text
-http://localhost:3000
-```
-
-## Verificación
+## Comprobar que todo esta bien
 
 ```bash
 npm run build
 npm run lint
 ```
 
+## Autor
+
+- Yahir Alejandro Valdez Lara
+- 23040027
+- 8 IDGS B
