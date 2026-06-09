@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Page, Product, CartItem } from './types';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import CartDrawer from './components/CartDrawer';
-import WhatsAppModal from './components/WhatsAppModal';
-import HomeView from './components/HomeView';
-import ProductsView from './components/ProductsView';
-import RegisterView from './components/RegisterView';
-import RecoverView from './components/RecoverView';
-import SitemapView from './components/SitemapView';
-import Error404View from './components/Error404View';
-import AboutView from './components/AboutView';
-import ServicesView from './components/ServicesView';
-import ContactView from './components/ContactView';
-import LoginView from './components/LoginView';
-import HelpView from './components/HelpView';
-import ChatWidget from './components/ChatWidget';
-
-// Smooth alert toast component
+import React, { useEffect, useState } from 'react';
 import { CheckCircle2, X } from 'lucide-react';
+import { CartItem, Page, Product } from './types';
+import AboutView from './components/AboutView';
+import CartDrawer from './components/CartDrawer';
+import ChatWidget from './components/ChatWidget';
+import ContactView from './components/ContactView';
+import Error404View from './components/Error404View';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import HelpView from './components/HelpView';
+import HomeView from './components/HomeView';
+import LoginView from './components/LoginView';
+import ProductsView from './components/ProductsView';
+import RecoverView from './components/RecoverView';
+import RegisterView from './components/RegisterView';
+import ServicesView from './components/ServicesView';
+import SitemapView from './components/SitemapView';
+import WhatsAppModal from './components/WhatsAppModal';
 
 function routeToPage(): Page {
   const path = window.location.pathname.toLowerCase();
@@ -42,23 +40,18 @@ function routeToPage(): Page {
 }
 
 export default function App() {
-  // Global states
   const [currentView, setCurrentView] = useState<Page>(routeToPage);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategoryName, setSelectedCategoryName] = useState<string>('');
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-
-  // Cart Management
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    return localStorage.getItem('valdez_dark_mode') === 'true';
+  });
   const [cart, setCart] = useState<CartItem[]>(() => {
     const saved = localStorage.getItem('valdez_cart');
     return saved ? JSON.parse(saved) : [];
   });
   const [cartOpen, setCartOpen] = useState(false);
-
-  // WhatsApp Dialogue Management
   const [consultingProduct, setConsultingProduct] = useState<Product | null>(null);
-
-  // Authentication Status
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     const saved = localStorage.getItem('valdez_logged');
     return saved === 'true';
@@ -66,26 +59,32 @@ export default function App() {
   const [userName, setUserName] = useState<string | null>(() => {
     return localStorage.getItem('valdez_user');
   });
-
-  // Toasts notifications System
   const [toast, setToast] = useState<string | null>(null);
 
-  // Synchronize cart arrays to memory disk
   useEffect(() => {
     localStorage.setItem('valdez_cart', JSON.stringify(cart));
   }, [cart]);
 
-  // Sync dark class on document element
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
+    localStorage.setItem('valdez_dark_mode', String(darkMode));
   }, [darkMode]);
 
-  // Add item handler
   const handleAddToCart = (product: Product) => {
+    if (!isLoggedIn) {
+      setToast('Inicia sesion o registrate para agregar productos al carrito.');
+      setCurrentView('login');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        setToast(null);
+      }, 3200);
+      return;
+    }
+
     setCart((prev) => {
       const idx = prev.findIndex((item) => item.product.id === product.id);
       if (idx > -1) {
@@ -96,8 +95,7 @@ export default function App() {
       return [...prev, { product, quantity: 1 }];
     });
 
-    // Fire smooth toast alert
-    setToast(`¡Añadido al carrito: ${product.name}!`);
+    setToast(`Producto agregado al carrito: ${product.name}`);
     setTimeout(() => {
       setToast(null);
     }, 2800);
@@ -123,7 +121,6 @@ export default function App() {
     setCart([]);
   };
 
-  // Auth simulators
   const handleLoginSuccess = (name: string) => {
     setIsLoggedIn(true);
     setUserName(name);
@@ -143,15 +140,25 @@ export default function App() {
     setCurrentView('products');
   };
 
+  const handleOpenCategoriesSection = () => {
+    setSearchQuery('');
+    setCurrentView('categories');
+  };
+
+  const handleOpenOffers = () => {
+    setSelectedCategoryName('');
+    setSearchQuery('_OFFERS_');
+    setCurrentView('offers');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-zinc-900 flex flex-col font-sans transition-colors duration-300">
-      
-      {/* Dynamic Toast banner notification */}
       {toast && (
         <div className="fixed top-24 right-4 z-50 flex items-center gap-3 bg-neutral-900 border border-amber-500/30 text-white px-5 py-3 rounded-lg shadow-xl animate-fade-in-down max-w-sm">
           <CheckCircle2 className="h-5 w-5 text-amber-500 shrink-0" />
           <span className="text-xs font-semibold text-left">{toast}</span>
-          <button 
+          <button
             onClick={() => setToast(null)}
             className="text-neutral-400 hover:text-white shrink-0 ml-auto"
           >
@@ -160,7 +167,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Global Header */}
       <Header
         currentView={currentView}
         setView={setCurrentView}
@@ -173,9 +179,10 @@ export default function App() {
         isLoggedIn={isLoggedIn}
         userName={userName}
         handleLogout={handleLogout}
+        onCategoriesClick={handleOpenCategoriesSection}
+        onOffersClick={handleOpenOffers}
       />
 
-      {/* Primary Main Content layout router */}
       <main className="flex-1 w-full flex flex-col">
         {currentView === 'home' && (
           <HomeView
@@ -193,17 +200,17 @@ export default function App() {
             onConsultProduct={(product) => setConsultingProduct(product)}
             selectedCategoryName={selectedCategoryName}
             setSelectedCategoryName={setSelectedCategoryName}
+            isLoggedIn={isLoggedIn}
           />
         )}
 
         {currentView === 'categories' && (
-          <div className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-            <HomeView
-              setView={setCurrentView}
-              setSearchQuery={setSearchQuery}
-              onSelectCategory={handleSelectCategoryFromHome}
-            />
-          </div>
+          <HomeView
+            setView={setCurrentView}
+            setSearchQuery={setSearchQuery}
+            onSelectCategory={handleSelectCategoryFromHome}
+            autoScrollToCategories={true}
+          />
         )}
 
         {currentView === 'offers' && (
@@ -211,16 +218,14 @@ export default function App() {
             searchQuery="_OFFERS_"
             setSearchQuery={setSearchQuery}
             onAddToCart={handleAddToCart}
-            onConsultProduct={(p) => setConsultingProduct(p)}
+            onConsultProduct={(product) => setConsultingProduct(product)}
+            isLoggedIn={isLoggedIn}
           />
         )}
 
         {currentView === 'services' && <ServicesView />}
-        
         {currentView === 'about' && <AboutView />}
-
         {currentView === 'help' && <HelpView />}
-
         {currentView === 'contact' && <ContactView />}
 
         {currentView === 'login' && (
@@ -247,14 +252,15 @@ export default function App() {
         )}
 
         {currentView === 'error404' && (
-          <Error404View setView={setCurrentView} setSearchQuery={setSearchQuery} />
+          <Error404View
+            setView={setCurrentView}
+            setSearchQuery={setSearchQuery}
+          />
         )}
       </main>
 
-      {/* Global Footer */}
       <Footer setView={setCurrentView} setSearchQuery={setSearchQuery} />
 
-      {/* Shopping Cart Slider Drawer drawer */}
       <CartDrawer
         isOpen={cartOpen}
         onClose={() => setCartOpen(false)}
@@ -264,7 +270,6 @@ export default function App() {
         onClearCart={handleClearCart}
       />
 
-      {/* WhatsApp Floating Overlay modal */}
       <WhatsAppModal
         product={consultingProduct}
         isOpen={consultingProduct !== null}
@@ -272,7 +277,6 @@ export default function App() {
       />
 
       <ChatWidget />
-
     </div>
   );
 }

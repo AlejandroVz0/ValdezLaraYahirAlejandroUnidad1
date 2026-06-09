@@ -1,4 +1,17 @@
-export type Page = 'home' | 'products' | 'categories' | 'offers' | 'services' | 'about' | 'help' | 'login' | 'register' | 'recover' | 'sitemap' | 'error404' | 'contact';
+export type Page =
+  | 'home'
+  | 'products'
+  | 'categories'
+  | 'offers'
+  | 'services'
+  | 'about'
+  | 'help'
+  | 'login'
+  | 'register'
+  | 'recover'
+  | 'sitemap'
+  | 'error404'
+  | 'contact';
 
 export interface Product {
   id: string;
@@ -39,12 +52,50 @@ export interface CategoryDetail {
 }
 
 export const CATEGORIES: CategoryDetail[] = [
-  { id: '1', name: 'Herramientas Manuales', iconName: 'hammer', description: 'Herramientas de mano de alta duración', color: '#ff8c00' },
-  { id: '2', name: 'Herramientas Eléctricas', iconName: 'handyman', description: 'Taladros, esmeriles, sierras y equipos de poder', isLarge: true, color: '#ff8c00' },
-  { id: '3', name: 'Plomería', iconName: 'plumbing', description: 'Tuberías, conexiones y refacciones para agua', color: '#333333' },
-  { id: '4', name: 'Electricidad', iconName: 'bolt', description: 'Cables, interruptores y equipo de control', color: '#333333' },
-  { id: '5', name: 'Pintura', iconName: 'format_paint', description: 'Brochas, rodillos y recubrimientos', color: '#333333' },
-  { id: '6', name: 'Construcción', iconName: 'construction', description: 'Materiales pesados, andamios y equipo industrial', isLarge: true, color: '#333333' },
+  {
+    id: '1',
+    name: 'Herramientas Manuales',
+    iconName: 'hammer',
+    description: 'Herramientas de mano de alta duración',
+    color: '#ff8c00',
+  },
+  {
+    id: '2',
+    name: 'Herramientas Eléctricas',
+    iconName: 'handyman',
+    description: 'Taladros, esmeriles, sierras y equipos de poder',
+    isLarge: true,
+    color: '#ff8c00',
+  },
+  {
+    id: '3',
+    name: 'Plomería',
+    iconName: 'plumbing',
+    description: 'Tuberías, conexiones y refacciones para agua',
+    color: '#333333',
+  },
+  {
+    id: '4',
+    name: 'Electricidad',
+    iconName: 'bolt',
+    description: 'Cables, interruptores y equipo de control',
+    color: '#333333',
+  },
+  {
+    id: '5',
+    name: 'Pintura',
+    iconName: 'format_paint',
+    description: 'Brochas, rodillos y recubrimientos',
+    color: '#333333',
+  },
+  {
+    id: '6',
+    name: 'Construcción',
+    iconName: 'construction',
+    description: 'Materiales pesados, andamios y equipo industrial',
+    isLarge: true,
+    color: '#333333',
+  },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -133,7 +184,6 @@ export const PRODUCTS: Product[] = [
     stock: 14,
     isOffer: true,
   },
-  // Plumbing Products
   {
     id: 'prod-09',
     name: 'Llave Stillson de 14" Profesional',
@@ -154,7 +204,6 @@ export const PRODUCTS: Product[] = [
     image: '/assets/products/prod-10.png',
     stock: 50,
   },
-  // Electricity Products
   {
     id: 'prod-11',
     name: 'Pinza Amperimétrica Digital Profesional',
@@ -177,7 +226,6 @@ export const PRODUCTS: Product[] = [
     image: '/assets/products/prod-12.png',
     stock: 120,
   },
-  // Paint Products
   {
     id: 'prod-13',
     name: 'Cubeta Pintura Vinílica Blanca 19L',
@@ -198,10 +246,9 @@ export const PRODUCTS: Product[] = [
     image: '/assets/products/prod-14.png',
     stock: 30,
   },
-  // Construction Products
   {
     id: 'prod-15',
-    name: 'Carretilla de Escucha 5.5 ft³ de Chapa',
+    name: 'Carretilla de Carga 5.5 ft³ de Chapa',
     brand: 'Truper',
     description: 'Llanta neumática premium de alta tracción y bastidor de tubo de acero reforzado con soportes frontales.',
     price: 1150,
@@ -270,18 +317,18 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: '¿Cuentan con servicio a domicilio o fletes?',
-    answer: 'Sí, contamos con fletes para materiales pesados de construcción y entregas directas a domicilio para herramientas o consumibles dentro de Ramos Arizpe y zonas circundantes de Saltillo.',
+    answer: 'Sí, contamos con fletes para materiales pesados de construcción y entregas directas a domicilio para herramientas o consumibles dentro de Ramos Arizpe y zonas cercanas de Saltillo.',
   },
   {
     question: '¿Cómo puedo ponerme en contacto directo para cotizaciones?',
-    answer: 'Puedes usar los botones "WhatsApp" de cada producto para enviarnos un chat pre-configurado de inmediato, o visitarnos en nuestra sucursal. También puedes enviarnos un mensaje desde nuestro buzón de contacto.',
+    answer: 'Puedes usar los botones de WhatsApp en cada producto para enviarnos un mensaje inmediato o escribirnos desde el buzón de contacto.',
   },
   {
     question: '¿Cuáles son las políticas de devolución y garantía?',
-    answer: 'Todos nuestros productos cuentan con garantía directa del fabricante (Bosch, DeWalt, Makita, Truper, etc.). Si tienes un desperfecto, puedes acudir a tienda con tu boleto de compra para validar el cambio físico o canalización con centros autorizados de servicio técnico.',
+    answer: 'Todos nuestros productos cuentan con garantía directa del fabricante. Si tienes un desperfecto, puedes acudir a tienda con tu comprobante de compra para validar el cambio o la canalización a centros autorizados.',
   },
   {
-    question: '¿Hacen facturación de mis compras por internet o tienda física?',
-    answer: 'Sí, emitimos facturas de validez oficial mexicana (CFDI). Al momento de realizar tu compra en nuestra sucursal o contactarnos por medios digitales, nos proporcionas tus datos fiscales RFC y te enviaremos la factura al instante.',
+    question: '¿Hacen facturación de mis compras por internet o en tienda física?',
+    answer: 'Sí, emitimos facturas oficiales mexicanas. Al comprar en sucursal o contactarnos por medios digitales, solo necesitas compartir tus datos fiscales.',
   },
 ];

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { 
-  X, 
-  Trash2, 
-  Plus, 
-  Minus, 
-  CheckCircle2, 
-  ShoppingBag, 
-  Loader2 
+import {
+  CheckCircle2,
+  Loader2,
+  Minus,
+  Plus,
+  ShoppingBag,
+  Trash2,
+  X,
 } from 'lucide-react';
 import { CartItem } from '../types';
 
@@ -55,20 +55,17 @@ export default function CartDrawer({
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-      {/* Background backdrop overlay */}
-      <div 
+      <div
         onClick={onClose}
         className="absolute inset-0 bg-black/60 backdrop-blur-xs transition-opacity duration-300"
-      ></div>
+      />
 
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-white dark:bg-neutral-900 border-l border-neutral-200 dark:border-neutral-800 shadow-2xl flex flex-col transition-colors duration-200">
-          
-          {/* Header */}
           <div className="px-6 py-5 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
             <h2 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
               <ShoppingBag className="h-5 w-5 text-amber-500" />
-              <span>Carrito de Compras</span>
+              <span>Carrito de compras</span>
             </h2>
             <button
               onClick={onClose}
@@ -87,21 +84,22 @@ export default function CartDrawer({
                       <ShoppingBag className="h-12 w-12" />
                     </div>
                     <div className="space-y-1">
-                      <h4 className="font-bold text-neutral-800 dark:text-neutral-200">Tu carrito está vacío</h4>
-                      <p className="text-xs text-neutral-500 max-w-[240px]">Agrega herramientas desde el catálogo para iniciar una cotización o pedido.</p>
+                      <h4 className="font-bold text-neutral-800 dark:text-neutral-200">Tu carrito esta vacio</h4>
+                      <p className="text-xs text-neutral-500 max-w-[240px]">
+                        Agrega productos desde el catalogo para iniciar una cotizacion o pedido.
+                      </p>
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {/* Cart Items List */}
                     {cart.map((item) => (
-                      <div 
-                        key={item.product.id} 
+                      <div
+                        key={item.product.id}
                         className="flex items-center gap-4 py-3 border-b border-neutral-100 dark:border-neutral-800"
                       >
-                        <img 
-                          src={item.product.image} 
-                          alt={item.product.name} 
+                        <img
+                          src={item.product.image}
+                          alt={item.product.name}
                           className="w-16 h-16 object-cover rounded-md bg-neutral-50 border border-neutral-100 dark:border-neutral-800"
                         />
                         <div className="flex-1 min-w-0">
@@ -114,8 +112,7 @@ export default function CartDrawer({
                           <span className="text-xs font-semibold text-amber-500 block mt-0.5">
                             ${item.product.price.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN
                           </span>
-                          
-                          {/* Item Quantity control */}
+
                           <div className="flex items-center gap-2 mt-2">
                             <button
                               onClick={() => onUpdateQuantity(item.product.id, item.quantity - 1)}
@@ -134,7 +131,7 @@ export default function CartDrawer({
                               }}
                               className="p-1 border border-neutral-300 dark:border-neutral-600 rounded hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors text-neutral-700 dark:text-neutral-300"
                               disabled={item.quantity >= item.product.stock}
-                              title={item.quantity >= item.product.stock ? 'Límite de stock disponible' : ''}
+                              title={item.quantity >= item.product.stock ? 'Limite de stock disponible' : ''}
                             >
                               <Plus className="h-3 w-3" />
                             </button>
@@ -149,58 +146,61 @@ export default function CartDrawer({
                       </div>
                     ))}
 
-                    {/* Shipping Method Selector */}
                     <div className="bg-neutral-50 dark:bg-neutral-800/40 p-4 rounded-lg space-y-3 border border-neutral-100 dark:border-neutral-800 mt-4">
                       <span className="block text-xs font-bold uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
-                        Método de Entrega
+                        Metodo de entrega
                       </span>
                       <div className="grid grid-cols-2 gap-3">
-                        <label className={`flex flex-col p-2.5 rounded-md border text-center cursor-pointer transition-all ${
-                          shippingType === 'store' 
-                            ? 'border-amber-500 bg-amber-500/5 text-amber-500' 
-                            : 'border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
-                        }`}>
-                          <input 
-                            type="radio" 
-                            name="delivery" 
-                            className="sr-only" 
+                        <label
+                          className={`flex flex-col p-2.5 rounded-md border text-center cursor-pointer transition-all ${
+                            shippingType === 'store'
+                              ? 'border-amber-500 bg-amber-500/5 text-amber-500'
+                              : 'border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="delivery"
+                            className="sr-only"
                             checked={shippingType === 'store'}
                             onChange={() => setShippingType('store')}
                           />
-                          <span className="text-xs font-semibold">Recoger en Tienda</span>
+                          <span className="text-xs font-semibold">Recoger en tienda</span>
                           <span className="text-[10px] text-neutral-500 mt-0.5">Gratis - Ramos Arizpe</span>
                         </label>
-                        <label className={`flex flex-col p-2.5 rounded-md border text-center cursor-pointer transition-all ${
-                          shippingType === 'home' 
-                            ? 'border-amber-500 bg-amber-500/5 text-amber-500' 
-                            : 'border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
-                        }`}>
-                          <input 
-                            type="radio" 
-                            name="delivery"  
+                        <label
+                          className={`flex flex-col p-2.5 rounded-md border text-center cursor-pointer transition-all ${
+                            shippingType === 'home'
+                              ? 'border-amber-500 bg-amber-500/5 text-amber-500'
+                              : 'border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="delivery"
                             className="sr-only"
                             checked={shippingType === 'home'}
                             onChange={() => setShippingType('home')}
                           />
-                          <span className="text-xs font-semibold">Envío a Domicilio</span>
+                          <span className="text-xs font-semibold">Envio a domicilio</span>
                           <span className="text-[10px] text-neutral-500 mt-0.5">
-                            {isFreeShipping ? '¡Gratis!' : '$150.00 MXN'}
+                            {isFreeShipping ? 'Gratis' : '$150.00 MXN'}
                           </span>
                         </label>
                       </div>
 
                       {shippingType === 'home' && (
                         <div className="mt-2 space-y-1">
-                          <label className="text-[10px] font-bold text-neutral-400 uppercase">Dirección de Envío</label>
+                          <label className="text-[10px] font-bold text-neutral-400 uppercase">Direccion de envio</label>
                           <input
                             type="text"
-                            placeholder="Calle, Número, Colonia, Ramos Arizpe"
+                            placeholder="Calle, numero, colonia, Ramos Arizpe"
                             value={address}
-                            onChange={(e) => setAddress(e.target.value)}
-                            className="w-full text-xs bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded p-2 focus:border-amber-500"
+                            onChange={(event) => setAddress(event.target.value)}
+                            className="w-full text-xs bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded p-2 focus:border-amber-500 text-neutral-800 dark:text-neutral-200"
                           />
                           <p className="text-[9px] text-neutral-400">
-                            * En compras mayores a $2,500 MXN, ¡el envío dentro de Ramos Arizpe es GRATIS!
+                            En compras mayores a $2,500 MXN, el envio dentro de Ramos Arizpe es gratis.
                           </p>
                         </div>
                       )}
@@ -214,8 +214,10 @@ export default function CartDrawer({
               <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
                 <Loader2 className="h-10 w-10 text-amber-500 animate-spin" />
                 <div className="space-y-1 animate-pulse">
-                  <h4 className="font-bold text-neutral-800 dark:text-neutral-200">Procesando Cotización</h4>
-                  <p className="text-xs text-neutral-500">Estamos validando existencias en el almacén de Ramos Arizpe...</p>
+                  <h4 className="font-bold text-neutral-800 dark:text-neutral-200">Procesando cotizacion</h4>
+                  <p className="text-xs text-neutral-500">
+                    Estamos validando existencias en el almacen de Ramos Arizpe...
+                  </p>
                 </div>
               </div>
             )}
@@ -227,29 +229,46 @@ export default function CartDrawer({
                 </div>
                 <div className="space-y-2">
                   <h4 className="font-headline font-bold text-neutral-900 dark:text-neutral-100 text-lg">
-                    ¡Orden de Pedido Recibida!
+                    Orden recibida
                   </h4>
                   <p className="text-xs text-neutral-500 leading-relaxed">
-                    Hemos registrado tu cotización de manera exitosa. Un asesor de Ferretería Valdez se pondrá en contacto a tu teléfono registrado para coordinar el pago y la entrega.
+                    Registramos tu cotizacion correctamente. Un asesor de Ferreteria Valdez se pondra en contacto contigo para coordinar pago y entrega.
                   </p>
                 </div>
                 <div className="bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-100 dark:border-neutral-800 p-4 rounded-lg w-full text-left text-xs space-y-1.5 font-medium">
-                  <div className="flex justify-between"><span className="text-neutral-400">Folio de Pedido:</span> <span className="font-bold text-neutral-900 dark:text-neutral-100">FV-{Math.floor(Math.random() * 900000) + 100000}</span></div>
-                  <div className="flex justify-between"><span className="text-neutral-400">Productos:</span> <span className="font-bold text-neutral-900 dark:text-neutral-100">{cart.length} artículos</span></div>
-                  <div className="flex justify-between"><span className="text-neutral-400">Monto del Resumen:</span> <span className="font-bold text-amber-500">${grandTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN</span></div>
-                  <div className="flex justify-between"><span className="text-neutral-400">Entrega:</span> <span className="font-bold text-neutral-900 dark:text-neutral-100">{shippingType === 'store' ? 'Recoger en Tienda (Ramos Arizpe)' : 'Envío a Domicilio'}</span></div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-400">Folio de pedido:</span>
+                    <span className="font-bold text-neutral-900 dark:text-neutral-100">
+                      FV-{Math.floor(Math.random() * 900000) + 100000}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-400">Productos:</span>
+                    <span className="font-bold text-neutral-900 dark:text-neutral-100">{cart.length} articulos</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-400">Monto total:</span>
+                    <span className="font-bold text-amber-500">
+                      ${grandTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-neutral-400">Entrega:</span>
+                    <span className="font-bold text-neutral-900 dark:text-neutral-100">
+                      {shippingType === 'store' ? 'Recoger en tienda (Ramos Arizpe)' : 'Envio a domicilio'}
+                    </span>
+                  </div>
                 </div>
                 <button
                   onClick={handleSuccessClose}
                   className="w-full bg-amber-500 hover:bg-amber-600 text-neutral-900 font-bold py-2.5 rounded-md transition-all active:scale-95"
                 >
-                  Entendido / Limpiar Carrito
+                  Entendido / Limpiar carrito
                 </button>
               </div>
             )}
           </div>
 
-          {/* Pricing Info & CTA Summary Footer */}
           {checkoutStep === 'cart' && cart.length > 0 && (
             <div className="border-t border-neutral-200 dark:border-neutral-800 px-6 py-5 bg-neutral-50 dark:bg-neutral-900/40 space-y-4">
               <div className="space-y-1.5 text-sm font-semibold">
@@ -259,10 +278,10 @@ export default function CartDrawer({
                 </div>
                 {shippingType === 'home' && (
                   <div className="flex justify-between text-neutral-600 dark:text-neutral-400">
-                    <span>Envío</span>
+                    <span>Envio</span>
                     <span>
                       {isFreeShipping ? (
-                        <span className="text-green-500 font-bold">¡Gratis!</span>
+                        <span className="text-green-500 font-bold">Gratis</span>
                       ) : (
                         `$${shippingCost.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN`
                       )}
@@ -271,7 +290,9 @@ export default function CartDrawer({
                 )}
                 <div className="flex justify-between text-base font-bold text-neutral-900 dark:text-neutral-100 pt-2 border-t border-neutral-200 dark:border-neutral-800">
                   <span>Total</span>
-                  <span className="text-amber-500">${grandTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN</span>
+                  <span className="text-amber-500">
+                    ${grandTotal.toLocaleString('es-MX', { minimumFractionDigits: 2 })} MXN
+                  </span>
                 </div>
               </div>
 
@@ -285,11 +306,11 @@ export default function CartDrawer({
                       : 'bg-amber-500 hover:bg-amber-600'
                   }`}
                 >
-                  <span>Iniciar Pedido / Cotización</span>
+                  <span>Iniciar pedido / cotizacion</span>
                 </button>
                 {shippingType === 'home' && !address.trim() && (
                   <p className="text-[10px] text-red-500 text-center font-semibold">
-                    * Favor de ingresar una dirección de envío para continuar.
+                    Ingresa una direccion de envio para continuar.
                   </p>
                 )}
               </div>
